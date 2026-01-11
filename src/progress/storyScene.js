@@ -1,6 +1,6 @@
 import { Assets, Container, Sprite, Text, TextStyle } from "pixi.js";
 
-export async function StoryScreen(app, onComplete) {
+export async function StoryScene(app, onComplete) {
     const normalDialogue = await Assets.load("assets/dialogue.png");
     normalDialogue.source.scaleMode = "nearest";
 

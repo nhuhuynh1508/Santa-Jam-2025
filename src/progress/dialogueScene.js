@@ -1,6 +1,6 @@
 import { Assets, Container, Sprite, Text, TextStyle } from "pixi.js";
 
-export async function DialogueScreen(app) {
+export async function DialogueScene(app) {
     const dialogue = await Assets.load("assets/king-dialogue.png");
     dialogue.source.scaleMode = "nearest";
 
