@@ -4,6 +4,10 @@ export async function StoryScene(app, onComplete) {
     const normalDialogue = await Assets.load("assets/dialogue.png");
     normalDialogue.source.scaleMode = "nearest";
 
+    // wait for fonts to load
+    await document.fonts.load('20px "Pixelify Sans"');
+    await document.fonts.ready;
+
     const dialog = new Container();
     dialog.position.set(app.screen.width / 2, 430);
 
@@ -25,7 +29,7 @@ export async function StoryScene(app, onComplete) {
     })
 
     story.anchor.set(0, 0);
-    story.position.set(-190, -30);
+    story.position.set(-190, -35);
 
     dialog.addChild(map);
     dialog.addChild(story);

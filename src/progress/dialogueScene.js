@@ -1,6 +1,6 @@
 import { Assets, Container, Sprite, Text, TextStyle } from "pixi.js";
 
-export async function DialogueScene(app) {
+export async function DialogueScene(app, onComplete) {
     const dialogue = await Assets.load("assets/king-dialogue.png");
     dialogue.source.scaleMode = "nearest";
 
@@ -67,6 +67,9 @@ export async function DialogueScene(app) {
             conversation.text = dialogueLines[currentLine];
         } else {
             app.stage.removeChild(dialog);
+            if (onComplete) {
+                onComplete();
+            }
         }
     });
 

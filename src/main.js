@@ -16,7 +16,6 @@ async function main() {
   
   SceneManager.init(app);
 
-  // displayMapOne();
   displayStoryScene();
 }
 
@@ -28,7 +27,7 @@ function displayStoryScene() {
 
 function displayDialogueScene() {
   SceneManager.changeScene(
-    () => DialogueScene(app)
+    () => DialogueScene(app, displayMapOne)
   );
 }
 
