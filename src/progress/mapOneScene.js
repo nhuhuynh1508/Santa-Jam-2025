@@ -1,6 +1,7 @@
 import { Assets, Container, Sprite } from "pixi.js";
+import { SideUIManager } from "../sideUIManager";
 
-export async function MapOneScene(app, uiLayer) {
+export async function MapOneScene(app) {
     // load the map asset and create a sprite
     const mapOneAsset = await Assets.load("assets/maps/map1-forest.png");
     // load the towers asset and create a sprite
@@ -14,7 +15,6 @@ export async function MapOneScene(app, uiLayer) {
 
     const mapOneSprite = new Sprite(mapOneAsset);
     mapOneSprite.anchor.set(0.5);
-    
 
     const mapOneContainer = new Container();
     mapOneContainer.position.set(270, app.screen.height / 2);
@@ -22,12 +22,17 @@ export async function MapOneScene(app, uiLayer) {
     mapOneContainer.cursor = "pointer";
     mapOneContainer.scale.set(4.2);
 
+     // show the sideUI
+    SideUIManager.show(app, mapOneContainer);
+
     mapOneContainer.addChild(mapOneSprite);
     const slots = [
-        { x: -8, y: 13, isOccupied: true, type: arcaneTower },
-        { x: -31,  y: -25, isOccupied: false, type: archerTower },
-        { x: 26,  y: 35, isOccupied: false, type: beaconTower },
-        { x: 38,  y: -54, isOccupied: true, type: arcaneTower }
+        { x: -8, y: 13, isOccupied: false },
+        { x: -30,  y: -25, isOccupied: false },
+        { x: 26,  y: 35, isOccupied: false },
+        { x: 38,  y: -54, isOccupied: false },
+        { x: 55, y: 19, isOccupied: false },
+        { x: -45, y: 0, isOccupied: false }
     ];
 
     mapOneContainer.on('pointerdown', (event) => {
