@@ -23,8 +23,15 @@ export async function StoryScene(app, onComplete) {
         wordWrapWidth: 420,
     });
 
+     const storyLines = [
+        "You are the King of Alreum, a ruler of a distant but once peaceful kingdom.",
+        "Magic runs through all corners of your kingdom, powering its glowing crystals, towers and enchanted forests.",
+        "Under your dynasty, Alreum flourished more than ever."
+    ];
+
+    let currentLine = 0;
     const story = new Text({
-        text: "",
+        text: `${storyLines[currentLine]}`,
         style: convoStyle
     })
 
@@ -35,15 +42,7 @@ export async function StoryScene(app, onComplete) {
     dialog.addChild(story);
 
     app.stage.addChild(dialog);
-    const storyLines = [
-        "You are the King of Alreum, a ruler of a distant but once peaceful kingdom.",
-        "Magic runs through all corners of your kingdom, powering its glowing crystals, towers and enchanted forests.",
-        "Under your dynasty, Alreum flourished more than ever."
-    ];
-
-    let currentLine = 0;
-    story.text = storyLines[currentLine];
-
+    
     dialog.eventMode = "static";
     dialog.cursor = "pointer";
 
