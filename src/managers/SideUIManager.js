@@ -1,4 +1,4 @@
-import { Assets, Container, Sprite } from "pixi.js";
+import { Assets, Container, Sprite, Graphics } from "pixi.js";
 
 export const SideUIManager = {
     uiLayer: null,
@@ -29,18 +29,38 @@ export const SideUIManager = {
             { id: 'beacon', asset: "assets/towers/beacon.png", x: 710, y: 350 }
         ];
 
-        for (const config of towerTypes) {
-            await this.createDraggableIcon(config, app, mapContainer);
-        }  
+        for (const tower of towerTypes) {
+            // // Background square
+            // const bg = new Graphics();
+
+            // bg.rect(0, 0, 60, 70);
+            // bg.fill('grey');
+            // bg.stroke({
+            //     width: 4,
+            //     color: 'black'
+            // });
+
+            // bg.position.set(tower.x + 12, tower.y + 20);
+
+            // this.towerIcons.addChild(bg);   
+
+            await this.createDraggableIcon(
+                tower,
+                app,
+                mapContainer
+            );
+        }
     },
 
-    async createDraggableIcon(config, app, mapContainer) {
-        const texture = await Assets.load(config.asset);
+    async createDraggableIcon(tower, app, mapContainer) {
+        const texture = await Assets.load(tower.asset);
         const icon = new Sprite(texture);
         
-        icon.scale.set(2);
-        icon.x = config.x;
-        icon.y = config.y;
+        icon.anchor.set(0.5);
+        icon.position.set(tower.x + 42, tower.y + 55);
+
+        icon.width = 70;
+        icon.height = 70;
         icon.eventMode = 'static';
         icon.cursor = 'pointer';
 
