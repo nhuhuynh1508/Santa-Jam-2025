@@ -31,9 +31,7 @@ async function main() {
   SceneManager.registerScene(SceneID.DIALOGUE_SCENE, () => DialogueScene(app));
   SceneManager.registerScene(SceneID.MAP_ONE, () => MapOneScene(app));
 
-  console.log("Scenes registered, starting game...");
-
-  await SceneManager.changeScene(SceneID.MAP_ONE);
+  await SceneManager.loadScene(SceneID.STORY_SCENE);
 }
 
 main();

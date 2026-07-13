@@ -6,6 +6,7 @@ type SceneFactory = () => Promise<Container> | Container;
 export class SceneManager {  
     static container: Container;
     static currentScene: Container | null = null;
+    static currentSceneID: SceneID | null = null;
 
     static scenes = new Map<SceneID, SceneFactory>();
 
@@ -17,7 +18,7 @@ export class SceneManager {
         this.scenes.set(id, factory);
     }
 
-    static async changeScene(id: SceneID) {
+    static async loadScene(id: SceneID) {
         const factory = this.scenes.get(id);
 
         if (!factory) {
@@ -32,6 +33,11 @@ export class SceneManager {
         const scene = await factory();
 
         this.currentScene = scene;
+        this.currentSceneID = id;
         this.container.addChild(scene);
+    }
+
+    static getCurrentSceneID(): SceneID | null {
+        return this.currentSceneID;
     }
 }
