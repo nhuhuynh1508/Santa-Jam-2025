@@ -1,6 +1,6 @@
 import { Assets, Container, Sprite, Text, TextStyle } from "pixi.js";
 
-import { SceneManager } from "../managers/SceneManager";
+import { SceneManager } from "../managers/SceneManager.ts";
 import { SceneID } from "../SceneID";
 
 export async function StoryScene(app) {

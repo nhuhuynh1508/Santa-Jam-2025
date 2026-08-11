@@ -31,20 +31,33 @@ export async function MapOneScene(app) {
     mapOneContainer.addChild(mapOneSprite);
 
     const slots = [
-        { x: -9, y: 12, isOccupied: false },
-        { x: -31, y: -24, isOccupied: false },
-        { x: 26, y: 35, isOccupied: false },
-        { x: 37, y: -53, isOccupied: false },
-        { x: 56, y: 18, isOccupied: false },
-        { x: -45, y: 0, isOccupied: false }
+        { x: -9, y: 23, isOccupied: false },
+        { x: -31, y: -14, isOccupied: false },
+        { x: 26, y: 45, isOccupied: false },
+        { x: 37, y: -43, isOccupied: false },
+        { x: 56, y: 28, isOccupied: false },
+        { x: -45, y: 9, isOccupied: false }
     ];
 
     // Enemy path (adjust these points to match your road)
     const path = [
-    { x: -59, y: -23 },
-    { x: 20, y: 0 },
-    { x: 40, y: 20 }
-];
+        { x: -60, y: -22 },
+        { x: -50, y: -30 },
+        { x: -45, y: -35 },
+        { x: 21, y: -35 },
+        { x: 21, y: -14 },
+        { x: 12, y: -10 },
+        { x: 12, y: 32 },
+        { x: -25, y: 32 },
+        { x: -25, y: 3 },
+        { x: -4, y: -3},
+        { x: 25, y: 3},
+        { x: 30, y: 6 },
+        { x: 36, y: 8},
+        { x: 40, y: 36},
+        { x: 44, y: 46},
+        { x: 60, y: 45}
+    ];
 
     // Expose path so EnemyManager can use it
     mapOneContainer.path = path;
@@ -86,7 +99,7 @@ export async function MapOneScene(app) {
             tower.anchor.set(0.5, 1);
             tower.scale.set(0.7);
             tower.x = slot.x;
-            tower.y = slot.y + 10;
+            tower.y = slot.y;
 
             mapOneContainer.addChild(tower);
 

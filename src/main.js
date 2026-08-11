@@ -1,5 +1,5 @@
 import { Application, Container } from "pixi.js";
-import { SceneManager } from "./managers/SceneManager";
+import { SceneManager } from "./managers/SceneManager.ts";
 import { SideUIManager } from "./managers/SideUIManager";
 import { MapOneScene } from "./maps/Map1";
 import { SceneID } from "./SceneID";
@@ -31,7 +31,7 @@ async function main() {
   SceneManager.registerScene(SceneID.DIALOGUE_SCENE, () => DialogueScene(app));
   SceneManager.registerScene(SceneID.MAP_ONE, () => MapOneScene(app));
 
-  await SceneManager.loadScene(SceneID.STORY_SCENE);
+  await SceneManager.loadScene(SceneID.MAP_ONE);
 }
 
 main();
