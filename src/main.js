@@ -9,7 +9,7 @@ import { StoryScene } from "./scenes/storyScene";
 const app = new Application();
 
 async function main() {
-  await app.init({ background: "#333333ff", height: 540, width: 800 });
+  await app.init({ background: "#333333ff", height: 540, width: 775 });
   await document.fonts.load('22px "Pixelify Sans"');
   await document.fonts.ready;
 

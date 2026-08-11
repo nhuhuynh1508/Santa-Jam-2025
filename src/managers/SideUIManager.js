@@ -1,4 +1,4 @@
-import { Assets, Container, Sprite, Graphics } from "pixi.js";
+import { Assets, Container, Graphics, Sprite } from "pixi.js";
 
 export const SideUIManager = {
     uiLayer: null,
@@ -16,7 +16,7 @@ export const SideUIManager = {
             texture.source.scaleMode = "nearest";
             this.sideUISprite = new Sprite(texture);
             this.sideUISprite.scale.set(4.3);
-            this.sideUISprite.x = 585;
+            this.sideUISprite.x = 550;
         }
 
         this.uiLayer.addChild(this.sideUISprite);
@@ -24,25 +24,25 @@ export const SideUIManager = {
         
         // Create tower icons
         const towerTypes = [
-            { id: 'arcane', asset: "assets/towers/arcane.png", x: 590, y: 350 },
-            { id: 'archer', asset: "assets/towers/archer.png", x: 650, y: 350 },
-            { id: 'beacon', asset: "assets/towers/beacon.png", x: 710, y: 350 }
+            { id: 'arcane', asset: "assets/towers/arcane.png", x: 550, y: 350 },
+            { id: 'archer', asset: "assets/towers/archer.png", x: 620, y: 350 },
+            { id: 'beacon', asset: "assets/towers/beacon.png", x: 690, y: 350 }
         ];
 
         for (const tower of towerTypes) {
-            // // Background square
-            // const bg = new Graphics();
+            // Background square
+            const bg = new Graphics();
 
-            // bg.rect(0, 0, 60, 70);
-            // bg.fill('grey');
-            // bg.stroke({
-            //     width: 4,
-            //     color: 'black'
-            // });
+            bg.rect(0, 0, 55, 70);
+            bg.fill('white');
+            bg.stroke({
+                width: 4,
+                color: 'black'
+            });
 
-            // bg.position.set(tower.x + 12, tower.y + 20);
+            bg.position.set(tower.x + 10, tower.y + 20);
 
-            // this.towerIcons.addChild(bg);   
+            this.towerIcons.addChild(bg);   
 
             await this.createDraggableIcon(
                 tower,
@@ -57,7 +57,7 @@ export const SideUIManager = {
         const icon = new Sprite(texture);
         
         icon.anchor.set(0.5);
-        icon.position.set(tower.x + 42, tower.y + 55);
+        icon.position.set(tower.x + 37, tower.y + 55);
 
         icon.width = 70;
         icon.height = 70;
